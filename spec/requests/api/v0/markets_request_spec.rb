@@ -11,7 +11,7 @@ describe "Markets Api" do
         markets = JSON.parse(response.body, symbolize_names: true)
 
         expect(markets.count).to eq(4)
-        
+
         markets.each do |market|
             expect(market).to have_key(:id)
             expect(market[:id]).to be_an(Integer)
@@ -43,5 +43,9 @@ describe "Markets Api" do
             expect(market).to have_key(:vender_count)
             expect(market[:vender_count]).to be_an(Integer)
         end
+    end
+
+    it "" do 
+        
     end
 end
