@@ -39,6 +39,9 @@ describe "Markets Api" do
 
             expect(market).to have_key(:lon)
             expect(market[:lon]).to be_an(String)
+
+            expect(market).to have_key(:vender_count)
+            expect(market[:vender_count]).to be_an(Integer)
         end
     end
 end

@@ -8,5 +8,6 @@ FactoryBot.define do
     zip { Faker::Address.zip }
     lat { Faker::Address.longitude }
     lon { Faker::Address.latitude }
+    vender_count { 0 } 
   end
 end
