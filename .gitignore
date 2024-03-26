@@ -28,6 +28,6 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-
+echo coverage >> .gitignore
 # Ignore master key for decrypting credentials and more.
 /config/master.key
