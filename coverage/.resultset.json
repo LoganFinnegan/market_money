@@ -198,7 +198,6 @@
           6,
           6,
           6,
-          6,
           null,
           null
         ]
@@ -225,6 +224,13 @@
       "/Users/joeyreyes/turing_work/3mod/pair_project/market_money/app/models/market.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          5,
+          null,
           null
         ]
       },
@@ -239,11 +245,19 @@
         "lines": [
           1,
           1,
+          null,
           1,
           null,
           null,
           1,
+          null,
+          null,
+          2,
           1,
+          1,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -253,8 +267,73 @@
           1,
           null
         ]
+      },
+      "/Users/joeyreyes/turing_work/3mod/pair_project/market_money/app/serializers/market_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          5,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/joeyreyes/turing_work/3mod/pair_project/market_money/app/models/market_vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/joeyreyes/turing_work/3mod/pair_project/market_money/app/models/vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/joeyreyes/turing_work/3mod/pair_project/market_money/app/poros/error_message.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/joeyreyes/turing_work/3mod/pair_project/market_money/app/serializers/error_serializer.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1711415205
+    "timestamp": 1711507361
   }
 }
