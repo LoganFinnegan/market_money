@@ -1,15 +1,16 @@
 class ErrorSerializer
-
+  attr_reader :object_error
+  
   def initialize(object_error)
     @object_error = object_error
   end
 
-  def serialize_json(id_number)
+  def serialize_json
     {
        "errors": [
            {
                "status": @object_error.status_code,
-               "detail": "Couldn't find Market with 'id'=#{id_number}"
+               "detail": @object_error.message
            }
        ]
    }

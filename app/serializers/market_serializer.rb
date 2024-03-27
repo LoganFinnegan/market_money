@@ -6,5 +6,4 @@ class MarketSerializer
     market.vendor_count
   end
 
-  # attribute :type, "market"
 end
