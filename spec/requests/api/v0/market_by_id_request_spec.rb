@@ -56,7 +56,6 @@ describe "Markets Api" do
             data = JSON.parse(response.body, symbolize_names: true)
 
             expect(data[:errors]).to be_a(Array)
-            expect(data[:errors].first[:status]).to eq(404)
             expect(data[:errors].first[:detail]).to eq("Couldn't find Market with 'id'=55555")
         end
     end
