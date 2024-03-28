@@ -10,15 +10,29 @@ class Api::V0::VendorsController < ApplicationController
     render json: VendorSerializer.new(vendor), status: :created
   end
 
+  def update
+    vendor = Vendor.find(params[:id])
+    vendor.update!(vendor_params)
+    render json: VendorSerializer.new(vendor)
+  end
+
+  def update
+    vendor = Vendor.find(params[:id])
+    vendor.update!(vendor_params)
+    render json: VendorSerializer.new(vendor)
+  end
+
   def destroy
-    # require 'pry'; binding.pry
-    Vendor.destroy(params[:id])
-    # status here for 200 code
-    begin 
-      Vendor.find(params[:id])
-    rescue ActiveRecord::RecordNotFound => exception
-      render json: ErrorSerializer.new(exception), status: :not_found
-    end 
+    vendor = Vendor.find(params[:id])
+    vendor.destroy
+    # # require 'pry'; binding.pry
+    # Vendor.destroy(params[:id])
+    # # status here for 200 code
+    # begin 
+    #   Vendor.find(params[:id])
+    # rescue ActiveRecord::RecordNotFound => exception
+    #   render json: ErrorSerializer.new(exception), status: :not_found
+    # end 
   end
   private 
 
@@ -26,3 +40,4 @@ class Api::V0::VendorsController < ApplicationController
     params.require(:vendor).permit(:name, :description, :contact_name, :contact_phone, :credit_accepted)
   end
 end
+
