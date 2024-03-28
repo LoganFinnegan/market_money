@@ -10,6 +10,7 @@ class ApplicationController < ActionController::API
     end
 
     def invalid(exception)
+        require 'pry'; binding.pry
         render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 400))
           .serialize_json, status: :bad_request
     end
