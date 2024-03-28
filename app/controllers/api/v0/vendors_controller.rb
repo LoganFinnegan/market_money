@@ -7,9 +7,18 @@ class Api::V0::VendorsController < ApplicationController
 
   def create
     vendor = Vendor.create!(vendor_params)
-    render json: VendorSerializer.new(vendor)
+    render json: VendorSerializer.new(vendor), status: :created
   end
 
+  def destroy
+    # require 'pry'; binding.pry
+    begin 
+      Vendor.destroy(params[:id])
+      Vendor.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => exception
+      render json: ErrorSerializer.new(exception), status: :not_found
+    end 
+  end
   private 
 
   def vendor_params
