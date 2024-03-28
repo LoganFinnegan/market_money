@@ -12,8 +12,9 @@ class Api::V0::VendorsController < ApplicationController
 
   def destroy
     # require 'pry'; binding.pry
+    Vendor.destroy(params[:id])
+    # status here for 200 code
     begin 
-      Vendor.destroy(params[:id])
       Vendor.find(params[:id])
     rescue ActiveRecord::RecordNotFound => exception
       render json: ErrorSerializer.new(exception), status: :not_found
