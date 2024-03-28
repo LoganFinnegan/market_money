@@ -31,28 +31,28 @@ describe 'vendor update' do
   end
 
   describe "sad path" do 
-    xit "has a invade id for vendor" do 
-      vendor =create(:vendor)
-      id = vendor.id
-  bui
+    it "has a invade id for vendor" do 
+      id = 5555
+  
       headers = {
         "CONTENT_TYPE": "application/json",
         "ACCEPT": "application/json"
       }
   
-      vendor_params = {
-        name: "Buzzy Bees",
-        description: "local honey and wax products",
-        contact_name: "Kimberly Couwer",
-        contact_phone: "8389928383",
-        credit_accepted: false
-      }
+      patch "/api/v0/vendors/#{id}", headers: headers
+
+      expect(response).to_not be_successful
+
+      expect(response.status).to eq(404)
   
-      patch "/api/v0/vendors/#{id}", params: vendor_params.to_json, headers: headers
+      data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:detail]).to eq("Couldn't find Vendor with 'id'=5555")
   
     end
 
-    xit "cant have blank attributes" do 
+    it "cant have blank attributes" do 
       vendor =create(:vendor)
       id = vendor.id
   
@@ -64,12 +64,16 @@ describe 'vendor update' do
       vendor_params = {
         name: "Buzzy Bees",
         description: "local honey and wax products",
-        contact_name: "Kimberly Couwer",
-        contact_phone: "8389928383",
+        contact_name: "",
+        contact_phone: "",
         credit_accepted: false
       }
   
       patch "/api/v0/vendors/#{id}", params: vendor_params.to_json, headers: headers
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:detail]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
     end
   end
 end
