@@ -68,3 +68,15 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
+def check_hash_structure(object, key, data_type)
+  expect(object).to have_key(key)
+  expect(object[key]).to be_a(data_type)
+end
