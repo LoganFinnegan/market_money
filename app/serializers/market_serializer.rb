@@ -5,5 +5,4 @@ class MarketSerializer
   attribute :vendor_count do |market|
     market.vendor_count
   end
-
 end

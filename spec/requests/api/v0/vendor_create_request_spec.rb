@@ -29,7 +29,6 @@ describe 'create vendor' do
 
   describe "sad path" do 
     it "errors on missing attributes" do 
-
       headers = {
         "CONTENT_TYPE": "application/json",
         "ACCEPT": "application/json"
@@ -46,6 +45,7 @@ describe 'create vendor' do
       post '/api/v0/vendors', params: JSON.generate(vendor: vendor_params), headers: headers
 
       data = JSON.parse(response.body, symbolize_names: true)
+      
       expect(data[:errors]).to be_a(Array)
       expect(data[:errors].first[:detail]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
     end

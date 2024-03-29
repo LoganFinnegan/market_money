@@ -2,7 +2,6 @@ class ErrorSerializer
   attr_reader :object_error
   
   def initialize(object_error)
-    # require 'pry'; binding.pry
     @object_error = object_error
   end
 

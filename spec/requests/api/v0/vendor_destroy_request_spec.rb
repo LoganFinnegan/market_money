@@ -32,7 +32,6 @@ describe 'destory vendor' do
 
       expect(data[:errors]).to be_a(Array)
       expect(data[:errors].first[:detail]).to eq("Couldn't find Vendor with 'id'=5555")
-  
     end
   end
 end

@@ -26,6 +26,7 @@ class Api::V0::VendorsController < ApplicationController
     vendor = Vendor.find(params[:id])
     vendor.destroy
   end
+  
   private 
 
   def vendor_params
