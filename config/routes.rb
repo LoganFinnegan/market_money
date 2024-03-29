@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :vendors, only: [:index], controller: "marvendor" 
       end
       resources :vendors, except: [:index]
-      resources :market_vendors, only: [:create]
+      resources :market_vendors, only: [:create, :destroy]
     end
   end
 end

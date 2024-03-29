@@ -7,6 +7,17 @@ class Api::V0::MarketVendorsController < ApplicationController
         render json: {message: "Successfully added vendor to market"}, status: :created
     end
 
+    def destroy
+        # market = Market.find(params[:market_id])
+        # vendor = Vendor.find(params[:vendor_id])
+        market_vendor = MarketVendor.find_by(market_vendors_params)
+        unless market_vendor == nil
+            market_vendor.destroy
+        else 
+            raise ActiveRecord::RecordNotFound
+        end 
+    end
+
     private 
 
     def market_vendors_params
