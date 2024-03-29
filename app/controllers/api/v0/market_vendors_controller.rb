@@ -9,6 +9,7 @@ class Api::V0::MarketVendorsController < ApplicationController
     market_vendor = MarketVendor.find_by(market_vendors_params)
     if market_vendor
       market_vendor.destroy
+      render json: {message: "Successfully deleted vendor and market relationship"}, status: 204
     else 
       raise ActiveRecord::RecordNotFound.new("Couldn't find Market with 'id'=#{params[:market_id]}")
     end 

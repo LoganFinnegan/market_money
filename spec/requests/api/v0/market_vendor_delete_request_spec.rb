@@ -21,8 +21,9 @@ require 'rails_helper'
       expect(MarketVendor.count).to eq(1)
 
       delete "/api/v0/market_vendors/#{id}", headers: headers, params: JSON.generate(market_vendors_params)
-
+      
       expect(response).to be_successful
+      expect(response.status).to eq(204)
       expect(MarketVendor.count).to eq(0)
     end
 
