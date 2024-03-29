@@ -21,7 +21,7 @@ describe 'vendor update' do
     patch "/api/v0/vendors/#{id}", params: vendor_params.to_json, headers: headers
 
     vendor = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
-
+    
     check_hash_structure(vendor, :name, String)
     check_hash_structure(vendor, :description, String)
     check_hash_structure(vendor, :contact_name, String)
