@@ -9,14 +9,4 @@ class Vendor < ApplicationRecord
 
     validates :credit_accepted, inclusion: [true, false]
     validates :credit_accepted, exclusion: [nil]
-
-
-
-
-
-    # validates :credit_accepted, inclusion: { in: [ true, false ] } 
-
-    # def credit_accepted_boolean
-    #   errors.add(:credit_accepted, "is not active") unless customer.active?
-    # end
 end
