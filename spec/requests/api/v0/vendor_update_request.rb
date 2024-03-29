@@ -21,7 +21,7 @@ describe 'vendor update' do
     patch "/api/v0/vendors/#{id}", params: vendor_params.to_json, headers: headers
 
     vendor = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
-
+    
     check_hash_structure(vendor, :name, String)
     check_hash_structure(vendor, :description, String)
     check_hash_structure(vendor, :contact_name, String)
@@ -49,7 +49,6 @@ describe 'vendor update' do
 
       expect(data[:errors]).to be_a(Array)
       expect(data[:errors].first[:detail]).to eq("Couldn't find Vendor with 'id'=5555")
-  
     end
 
     it "cant have blank attributes" do 
